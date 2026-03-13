@@ -1,7 +1,7 @@
 # 🐳 telemt-docker
 
-[![Docker Image Size](https://img.shields.io/docker/image-size/whn0thacked/telemt-docker?style=flat-square&logo=docker&color=blue)](https://hub.docker.com/r/whn0thacked/telemt-docker)
-[![Docker Pulls](https://img.shields.io/docker/pulls/whn0thacked/telemt-docker?style=flat-square&logo=docker)](https://hub.docker.com/r/whn0thacked/telemt-docker)
+[![Docker Image Size](https://img.shields.io/docker/image-size/stealthsurf/telemt-docker?style=flat-square&logo=docker&color=blue)](https://hub.docker.com/r/stealthsurf/telemt-docker)
+[![Docker Pulls](https://img.shields.io/docker/pulls/stealthsurf/telemt-docker?style=flat-square&logo=docker)](https://hub.docker.com/r/stealthsurf/telemt-docker)
 [![Architecture](https://img.shields.io/badge/arch-amd64%20%7C%20arm64-important?style=flat-square)](#)
 [![Security: non-root](https://img.shields.io/badge/security-non--root-success?style=flat-square)](#)
 [![Base Image](https://img.shields.io/badge/base-distroless%2Fstatic%3Anonroot-blue?style=flat-square)](https://github.com/GoogleContainerTools/distroless)
@@ -45,7 +45,7 @@ openssl rand -hex 16
 
 Refer to the upstream repository for the configuration format and examples:
 
-👉 **https://github.com/telemt/telemt**
+👉 **https://github.com/stealthsurf-vpn/telemt**
 
 Place your configuration file as `./telemt.toml`.
 
@@ -57,7 +57,7 @@ Place your configuration file as `./telemt.toml`.
 ```yaml
 services:
   telemt:
-    image: whn0thacked/telemt-docker:latest
+    image: stealthsurf/telemt-docker:latest
     container_name: telemt
     restart: unless-stopped
 
@@ -162,7 +162,7 @@ telemt /etc/telemt.toml
 To use a different config path, override the command:
 
 ```bash
-docker run ... whn0thacked/telemt-docker:latest /path/to/config.toml
+docker run ... stealthsurf/telemt-docker:latest /path/to/config.toml
 ```
 
 ---
@@ -171,7 +171,7 @@ docker run ... whn0thacked/telemt-docker:latest /path/to/config.toml
 
 This Dockerfile supports pinning upstream Telemt source:
 
-- `TELEMT_REPO` (default: `https://github.com/telemt/telemt.git`)
+- `TELEMT_REPO` (default: `https://github.com/stealthsurf-vpn/telemt.git`)
 - `TELEMT_REF` (default: `main`)
 
 ### Multi-arch build (amd64 + arm64)
@@ -179,7 +179,7 @@ This Dockerfile supports pinning upstream Telemt source:
 ```bash
 docker buildx build \
   --platform linux/amd64,linux/arm64 \
-  -t whn0thacked/telemt-docker:latest \
+  -t stealthsurf/telemt-docker:latest \
   --push .
 ```
 
@@ -188,7 +188,7 @@ docker buildx build \
 ```bash
 docker buildx build \
   --build-arg TELEMT_REF=v1.1.0.0 \
-  -t whn0thacked/telemt-docker:v1.1.0.0 \
+  -t stealthsurf/telemt-docker:v1.1.0.0 \
   --push .
 ```
 

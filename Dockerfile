@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1.7
 
-ARG TELEMT_REPO=https://github.com/telemt/telemt.git
+ARG TELEMT_REPO=https://github.com/stealthsurf-vpn/telemt.git
 ARG TELEMT_REF=main
 
-FROM --platform=$TARGETPLATFORM dhi.io/alpine-base:3.23-dev AS build
+FROM --platform=$TARGETPLATFORM alpine:3.23 AS build
 
 ARG TELEMT_REPO
 ARG TELEMT_REF
